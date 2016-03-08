@@ -26,8 +26,8 @@ cacheSolve <- function(x, ...) {
   data <- matrix()
 	inv <- x$getinv()
 	if(!is.null(inv)) {
-    sum(x$get()==solve(x$getinv())) == sum(dim(x$get))
-    if(sum(x$get()==solve(x$getinv())) == dim(x$get())[1] * dim(x$get())[2]){
+    		sum(x$get()==solve(x$getinv())) == sum(dim(x$get))
+    		if(sum(x$get()==solve(x$getinv())) == dim(x$get())[1] * dim(x$get())[2]){
 		  message("getting cached data")
 		  return(inv)
 	  }
