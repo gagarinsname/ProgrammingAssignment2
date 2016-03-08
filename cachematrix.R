@@ -3,6 +3,7 @@
 ##  2) get the value of the matrix
 ##  3) set the value of the inverted matrix (inv)
 ##  4) get the value of the inverted matrix (inv)
+## functions do
 makeCacheMatrix <- function(x = matrix()) {
 	inv <- NULL
 	set <- function(y) {
@@ -18,14 +19,18 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve returns you the cached inverted matrix if it exists and if the original matrix hasn't changed.
+## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Return a matrix that is the inverse of 'x'
+  data <- matrix()
 	inv <- x$getinv()
-	if(!is.null(inv) & identical(x$get, solve(inv))) {
-		message("getting cached data")
-		return(inv)
+	if(!is.null(inv)) {
+    sum(x$get()==solve(x$getinv())) == sum(dim(x$get))
+    if(sum(x$get()==solve(x$getinv())) == dim(x$get())[1] * dim(x$get())[2]){
+		  message("getting cached data")
+		  return(inv)
+	  }
 	}
 	data <- x$get()
 	inv <- solve(data)
